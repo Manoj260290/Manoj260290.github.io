@@ -1,0 +1,15 @@
+/workspace/StringReverser/bin/Debug/net8.0/StringReverser
+/workspace/StringReverser/bin/Debug/net8.0/StringReverser.deps.json
+/workspace/StringReverser/bin/Debug/net8.0/StringReverser.runtimeconfig.json
+/workspace/StringReverser/bin/Debug/net8.0/StringReverser.dll
+/workspace/StringReverser/bin/Debug/net8.0/StringReverser.pdb
+/workspace/StringReverser/obj/Debug/net8.0/StringReverser.GeneratedMSBuildEditorConfig.editorconfig
+/workspace/StringReverser/obj/Debug/net8.0/StringReverser.AssemblyInfoInputs.cache
+/workspace/StringReverser/obj/Debug/net8.0/StringReverser.AssemblyInfo.cs
+/workspace/StringReverser/obj/Debug/net8.0/StringReverser.csproj.CoreCompileInputs.cache
+/workspace/StringReverser/obj/Debug/net8.0/StringReverser.sourcelink.json
+/workspace/StringReverser/obj/Debug/net8.0/StringReverser.dll
+/workspace/StringReverser/obj/Debug/net8.0/refint/StringReverser.dll
+/workspace/StringReverser/obj/Debug/net8.0/StringReverser.pdb
+/workspace/StringReverser/obj/Debug/net8.0/StringReverser.genruntimeconfig.cache
+/workspace/StringReverser/obj/Debug/net8.0/ref/StringReverser.dll
