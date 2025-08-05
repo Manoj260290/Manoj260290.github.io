@@ -1,0 +1,6 @@
+@TechQA.ApiGateway_HostAddress = http://localhost:5209
+
+GET {{TechQA.ApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

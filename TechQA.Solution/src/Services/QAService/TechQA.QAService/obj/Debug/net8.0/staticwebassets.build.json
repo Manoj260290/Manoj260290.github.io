@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "G9NJJg7Oz5OcfGGCJ2IrLXRm+GY9qMv0Sszf7vxZubo=",
+  "Source": "TechQA.QAService",
+  "BasePath": "_content/TechQA.QAService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

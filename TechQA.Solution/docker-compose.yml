@@ -1,0 +1,106 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: techqa-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    networks:
+      - techqa-network
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourStrong@Passw0rd -Q 'SELECT 1'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  section-service:
+    build:
+      context: .
+      dockerfile: src/Services/SectionService/TechQA.SectionService/Dockerfile
+    container_name: techqa-section-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=TechQA_SectionService;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;
+    ports:
+      - "7001:443"
+      - "5001:80"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    volumes:
+      - ~/.aspnet/https:/https:ro
+    networks:
+      - techqa-network
+
+  qa-service:
+    build:
+      context: .
+      dockerfile: src/Services/QAService/TechQA.QAService/Dockerfile
+    container_name: techqa-qa-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=TechQA_QAService;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;
+    ports:
+      - "7002:443"
+      - "5002:80"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    volumes:
+      - ~/.aspnet/https:/https:ro
+    networks:
+      - techqa-network
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: src/ApiGateway/TechQA.ApiGateway/Dockerfile
+    container_name: techqa-api-gateway
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    ports:
+      - "7000:443"
+      - "5000:80"
+    depends_on:
+      - section-service
+      - qa-service
+    volumes:
+      - ~/.aspnet/https:/https:ro
+      - ./src/ApiGateway/TechQA.ApiGateway/ocelot.docker.json:/app/ocelot.json:ro
+    networks:
+      - techqa-network
+
+  frontend:
+    build:
+      context: ../qa-app
+      dockerfile: Dockerfile
+    container_name: techqa-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api-gateway
+    networks:
+      - techqa-network
+
+volumes:
+  sqlserver_data:
+
+networks:
+  techqa-network:
+    driver: bridge

@@ -1,0 +1,6 @@
+@TechQA.SectionService_HostAddress = http://localhost:5056
+
+GET {{TechQA.SectionService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
