@@ -1,0 +1,91 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/TechnologySections",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "section-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/sections",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/TechnologySections/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "section-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/sections/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/QuestionAnswers",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "qa-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/questions",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/QuestionAnswers/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "qa-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/questions/{id}",
+      "UpstreamHttpMethod": [ "GET", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/QuestionAnswers/section/{sectionId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "qa-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/questions/section/{sectionId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/QuestionAnswers/{id}/toggle-completion",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "qa-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/questions/{id}/toggle-completion",
+      "UpstreamHttpMethod": [ "PATCH" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/QuestionAnswers/section/{sectionId}/progress",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "qa-service",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/questions/section/{sectionId}/progress",
+      "UpstreamHttpMethod": [ "GET" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://api-gateway"
+  }
+}

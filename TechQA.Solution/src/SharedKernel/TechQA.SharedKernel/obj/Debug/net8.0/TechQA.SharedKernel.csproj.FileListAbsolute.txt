@@ -1,0 +1,12 @@
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/bin/Debug/net8.0/TechQA.SharedKernel.deps.json
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/bin/Debug/net8.0/TechQA.SharedKernel.dll
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/bin/Debug/net8.0/TechQA.SharedKernel.pdb
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/obj/Debug/net8.0/TechQA.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/obj/Debug/net8.0/TechQA.SharedKernel.AssemblyInfoInputs.cache
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/obj/Debug/net8.0/TechQA.SharedKernel.AssemblyInfo.cs
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/obj/Debug/net8.0/TechQA.SharedKernel.csproj.CoreCompileInputs.cache
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/obj/Debug/net8.0/TechQA.SharedKernel.sourcelink.json
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/obj/Debug/net8.0/TechQA.SharedKernel.dll
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/obj/Debug/net8.0/refint/TechQA.SharedKernel.dll
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/obj/Debug/net8.0/TechQA.SharedKernel.pdb
+/workspace/TechQA.Solution/src/SharedKernel/TechQA.SharedKernel/obj/Debug/net8.0/ref/TechQA.SharedKernel.dll
